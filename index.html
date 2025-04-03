@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css" id="light-theme">
+    <link rel="stylesheet" href="css/dark-style.css" id="dark-theme" disabled>
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo" data-aos="fade-right">
+                <a href="#home">Advait<span> Axiom</span></a>
+            </div>
+            <div class="menu-btn">
+                <div class="menu-btn__burger"></div>
+            </div>
+            <ul class="nav-links">
+                <li data-aos="fade-down" data-aos-delay="100"><a href="#home" class="active">Home</a></li>
+                <li data-aos="fade-down" data-aos-delay="200"><a href="#about">About</a></li>
+                <li data-aos="fade-down" data-aos-delay="300"><a href="#services">Education</a></li>
+                <li data-aos="fade-down" data-aos-delay="400"><a href="#portfolio">Portfolio</a></li>
+                <li data-aos="fade-down" data-aos-delay="500"><a href="#contact">Contact</a></li>
+            </ul>
+            <!-- Add theme toggle button -->
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-toggle-checkbox">
+                <label for="theme-toggle-checkbox">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                    <div class="toggle-ball"></div>
+                </label>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="text-content" data-aos="fade-up">
+                    <h4>Welcome to my Portfolio</h4>
+                    <h1>Hi, I'm <span class="highlight">Alapan Das</span></h1>
+                    <h2>I'm a <span class="typed-text"></span><span class="cursor">&nbsp;</span></h2>
+                    <p>Half software engineer, half magician—because sometimes, even I don't know how my code works.</p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="primary-btn">Hire Me</a>
+                        <a href="#portfolio" class="secondary-btn">My Work</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/alapan-das-596241238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/AdvaitAxiom" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/alapan.das.33?mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/ad_alapan?utm_source=qr&igsh=eWs1NGc4MmJ3ZDMw" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="hero-image" data-aos="fade-left">
+                    <div class="hero-img-container">
+                        <!-- Inner container for the image -->
+                        <div class="hero-img-inner">
+                            <img src="assets/images/Alapan_227kb.png" alt="Your Name" class="profile-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#about" class="scroll-down">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>About <span>Me</span></h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image" data-aos="fade-right">
+                    <div class="about-img-container">
+                        <!-- Inner container for the image -->
+                        <div class="about-img-inner">
+                            <img src="assets/images/IMG_20241231_094713.jpg" alt="About Me" class="about-profile-image">
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <h3>Who am I?</h3>
+                    <p>I'm a passionate IT student from the University of Calcutta, professionally trained in turning "it should work" into "why doesn't it work?". My debugging skills are top-notch—mostly because I create enough bugs to stay in practice. I believe in clean code, efficient algorithms, and the power of Ctrl+Z in real life. If life had a compiler, I'd be optimizing it for speed and minimum errors! 😆💻</p>
+                    <div class="skills">
+                        <h3>My Skills</h3>
+                        <div class="skill-bars">
+                            <div class="skill">
+                                <div class="skill-name">HTML/CSS</div>
+                                <div class="skill-bar">
+                                    <div class="skill-per" per="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name">JavaScript</div>
+                                <div class="skill-bar">
+                                    <div class="skill-per" per="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name">Git</div>
+                                <div class="skill-bar">
+                                    <div class="skill-per" per="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name">C++</div>
+                                <div class="skill-bar">
+                                    <div class="skill-per" per="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name">Java</div>
+                                <div class="skill-bar">
+                                    <div class="skill-per" per="80"></div>
+                                </div>
+                                <div class="skill">
+                                    <div class="skill-name">SQL/MySQL</div>
+                                    <div class="skill-bar">
+                                        <div class="skill-per" per="90"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="Assets/pdfs/ATS_Friendly_Technical_Resume.pdf" class="primary-btn">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>My <span>Education</span></h2>
+                <div class="underline"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Creating responsive and dynamic websites using the latest technologies and best practices.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Designing intuitive user interfaces and engaging user experiences that captivate audiences.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Creating websites that work flawlessly across all devices and screen sizes.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Optimization</h3>
+                    <p>Improving website visibility and performance in search engines to drive more traffic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>My <span>Portfolio</span></h2>
+                <div class="underline"></div>
+            </div>
+            
+            <div class="portfolio-filter" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="design">UI/UX Design</button>
+                <button class="filter-btn" data-filter="brand">Branding</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-item web" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-img">
+                        <img src="assets/images/project1.jpg" alt="E-Commerce Website">
+                        <div class="portfolio-overlay"></div>
+                    </div>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">React</span>
+                        <span class="portfolio-tag">Firebase</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>E-Commerce Website</h3>
+                        <p>Modern online store with full shopping capabilities</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link" title="View Details">
+                                <i class="fas fa-link"></i>
+                            </a>
+                            <a href="#" class="portfolio-link" title="View Code">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="portfolio-item design" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-img">
+                        <img src="assets/images/project2.jpg" alt="Mobile App Design">
+                        <div class="portfolio-overlay"></div>
+                    </div>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Figma</span>
+                        <span class="portfolio-tag">UI Design</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Mobile App Design</h3>
+                        <p>Sleek and modern UI design for a fitness app</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link" title="View Details">
+                                <i class="fas fa-link"></i>
+                            </a>
+                            <a href="#" class="portfolio-link" title="View Code">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="portfolio-item brand" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-img">
+                        <img src="assets/images/project3.jpg" alt="Brand Identity">
+                        <div class="portfolio-overlay"></div>
+                    </div>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Branding</span>
+                        <span class="portfolio-tag">Illustrator</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Brand Identity</h3>
+                        <p>Complete branding for a new startup company</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link" title="View Details">
+                                <i class="fas fa-link"></i>
+                            </a>
+                            <a href="#" class="portfolio-link" title="View Code">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="portfolio-item web" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-img">
+                        <img src="assets/images/project4.jpg" alt="Task Management App">
+                        <div class="portfolio-overlay"></div>
+                    </div>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Vue.js</span>
+                        <span class="portfolio-tag">Node.js</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Task Management App</h3>
+                        <p>Full-stack application with drag and drop interface</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link" title="View Details">
+                                <i class="fas fa-link"></i>
+                            </a>
+                            <a href="#" class="portfolio-link" title="View Code">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="portfolio-item design" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-img">
+                        <img src="assets/images/project5.jpg" alt="Dashboard UI Kit">
+                        <div class="portfolio-overlay"></div>
+                    </div>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Sketch</span>
+                        <span class="portfolio-tag">Prototype</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Dashboard UI Kit</h3>
+                        <p>Comprehensive UI components for admin dashboards</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link" title="View Details">
+                                <i class="fas fa-link"></i>
+                            </a>
+                            <a href="#" class="portfolio-link" title="View Code">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="portfolio-item brand" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-img">
+                        <img src="assets/images/project6.jpg" alt="Logo Collection">
+                        <div class="portfolio-overlay"></div>
+                    </div>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Logo Design</span>
+                        <span class="portfolio-tag">Identity</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Logo Collection</h3>
+                        <p>Series of minimalist logos for various clients</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link" title="View Details">
+                                <i class="fas fa-link"></i>
+                            </a>
+                            <a href="#" class="portfolio-link" title="View Code">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-more" data-aos="fade-up" data-aos-delay="400">
+                <a href="#" class="view-more-btn">
+                    <span>View More Projects</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Contact <span>Me</span></h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Kolkata, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>alapandas2810@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 9088969456</p>
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/alapan-das-596241238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/AdvaitAxiom"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/alapan.das.33?mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/ad_alapan?utm_source=qr&igsh=eWs1NGc4MmJ3ZDMw"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form" data-aos="fade-left">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="primary-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2023 Alapan Das. All Rights Reserved.</p>
+                <div class="back-to-top">
+                    <a href="#home"><i class="fas fa-arrow-up"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
