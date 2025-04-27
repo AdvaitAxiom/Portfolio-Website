@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/style.css" id="light-theme">
     <link rel="stylesheet" href="css/dark-style.css" id="dark-theme" disabled>
     <link rel="stylesheet" href="css/responsive.css">
+    <!-- Chatbot CSS -->
+    <link rel="stylesheet" href="css/chatbot.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS Animation Library -->
@@ -36,7 +38,7 @@
             </ul>
             <!-- Add theme toggle button -->
             <div class="theme-toggle">
-                <input type="checkbox" id="theme-toggle-checkbox">
+                <input type="checkbox" id="theme-toggle-checkbox" aria-label="Toggle dark theme" title="Toggle dark/light theme">
                 <label for="theme-toggle-checkbox">
                     <i class="fas fa-sun"></i>
                     <i class="fas fa-moon"></i>
@@ -60,10 +62,10 @@
                         <a href="#portfolio" class="secondary-btn">My Work</a>
                     </div>
                     <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/alapan-das-596241238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/AdvaitAxiom" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.facebook.com/alapan.das.33?mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/ad_alapan?utm_source=qr&igsh=eWs1NGc4MmJ3ZDMw" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/alapan-das-596241238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/AdvaitAxiom" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/alapan.das.33?mibextid=ZbWKwL" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/ad_alapan?utm_source=qr&igsh=eWs1NGc4MmJ3ZDMw" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="hero-image" data-aos="fade-left">
@@ -387,10 +389,10 @@
                         </div>
                     </div>
                     <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/alapan-das-596241238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/AdvaitAxiom"><i class="fab fa-github"></i></a>
-                        <a href="https://www.facebook.com/alapan.das.33?mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/ad_alapan?utm_source=qr&igsh=eWs1NGc4MmJ3ZDMw"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/alapan-das-596241238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/AdvaitAxiom" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/alapan.das.33?mibextid=ZbWKwL" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/ad_alapan?utm_source=qr&igsh=eWs1NGc4MmJ3ZDMw" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="contact-form" data-aos="fade-left">
@@ -426,8 +428,40 @@
         </div>
     </footer>
 
+    <!-- Chat Bot -->
+    <div class="chat-bot">
+        <!-- Chat Toggle Button -->
+        <div class="chat-toggle-btn" id="chat-toggle" aria-label="Open chat assistant">
+            <i class="fas fa-comment-dots"></i>
+            <div class="chat-notification">1</div>
+        </div>
+        
+        <!-- Chat Container -->
+        <div class="chat-container" id="chat-container">
+            <div class="chat-header">
+                <h3>AI Resume Assistant</h3>
+                <div class="close-chat" id="close-chat" aria-label="Close chat">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will be added dynamically via JavaScript -->
+            </div>
+            
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Ask me anything about Alapan..." aria-label="Chat message">
+                <button id="send-message" aria-label="Send message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- JS Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/main.js"></script>
+    <!-- Chatbot Script -->
+    <script src="js/chatbot.js"></script>
 </body>
 </html> 

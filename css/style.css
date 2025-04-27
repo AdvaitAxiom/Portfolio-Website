@@ -1085,7 +1085,7 @@ h1, h2, h3, h4 {
     z-index: 1;
 }
 
-.portfolio-filter-item {
+.filter-btn {
     padding: 8px 20px;
     font-size: 0.95rem;
     font-weight: 500;
@@ -1098,12 +1098,12 @@ h1, h2, h3, h4 {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
 }
 
-.portfolio-filter-item:hover {
+.filter-btn:hover {
     background-color: rgba(var(--primary-rgb), 0.1);
     border-color: rgba(var(--primary-rgb), 0.2);
 }
 
-.portfolio-filter-item.active {
+.filter-btn.active {
     background-color: var(--primary-color);
     color: white;
     border-color: transparent;
