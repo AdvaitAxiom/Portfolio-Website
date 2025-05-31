@@ -318,4 +318,128 @@
 
 .message-content strong {
     font-weight: 600;
+}
+
+/* System message for API key confirmation */
+.system-message {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    animation: fadeIn 0.3s ease;
+}
+
+.system-message .message-content {
+    background: rgba(var(--primary-rgb), 0.1);
+    color: var(--chat-primary);
+    border-radius: 10px;
+    padding: 8px 15px;
+    max-width: 90%;
+    line-height: 1.5;
+    font-size: 13px;
+    text-align: center;
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
+}
+
+/* API status indicator */
+.api-status {
+    position: absolute;
+    top: 15px;
+    right: 40px;
+    font-size: 10px;
+    font-weight: 500;
+    background: rgba(var(--primary-rgb), 0.15);
+    color: var(--chat-primary);
+    padding: 2px 6px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.api-status.enabled {
+    background: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+}
+
+.api-status.disabled {
+    background: rgba(231, 76, 60, 0.15);
+    color: #e74c3c;
+}
+
+.api-status-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.api-status.enabled .api-status-dot {
+    background-color: #2ecc71;
+}
+
+.api-status.disabled .api-status-dot {
+    background-color: #e74c3c;
+}
+
+/* Helper text for API setup */
+.api-help-text {
+    font-size: 11px;
+    color: var(--chat-text);
+    opacity: 0.7;
+    margin-top: 8px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* API Instructions Panel */
+.api-instructions {
+    background: rgba(var(--primary-rgb), 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 13px;
+    border: 1px solid rgba(var(--primary-rgb), 0.1);
+}
+
+.api-instructions h4 {
+    font-size: 14px;
+    margin: 0 0 10px;
+    color: var(--chat-primary);
+}
+
+.api-instructions ol {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.api-instructions li {
+    margin-bottom: 5px;
+}
+
+.api-instructions a {
+    color: var(--chat-primary);
+    text-decoration: underline;
+}
+
+.api-instructions code {
+    display: inline-block;
+    background: rgba(var(--primary-rgb), 0.1);
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    margin: 5px 0;
+}
+
+.api-instructions .note {
+    font-size: 11px;
+    font-style: italic;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+[data-theme="dark"] .api-instructions {
+    background: rgba(var(--primary-rgb), 0.1);
+}
+
+[data-theme="dark"] .api-instructions code {
+    background: rgba(255, 255, 255, 0.15);
 } 

@@ -2,6 +2,7 @@
  * AI Chatbot for Resume Portfolio
  * This chatbot can answer questions about Alapan's resume, skills, experience, and portfolio.
  * Enhanced with conversational AI capabilities to provide a more natural interaction.
+ * Integrated with Gemini AI API for more intelligent responses.
  */
 
 class ResumeBot {
@@ -13,6 +14,11 @@ class ResumeBot {
         this.closeChat = document.getElementById('close-chat');
         this.sendMessage = document.getElementById('send-message');
         this.chatNotification = document.querySelector('.chat-notification');
+        
+        // Gemini API configuration
+        this.apiKey = "YOUR_GEMINI_API_KEY"; // Replace with your actual Gemini API key
+        this.apiEndpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
+        this.useGeminiAPI = true; // Set to false to use local response generation instead of API
         
         this.isOpen = false;
         this.isDarkMode = localStorage.getItem('darkMode') === 'enabled';
@@ -108,6 +114,8 @@ class ResumeBot {
     
     init() {
         // Initialize chatbot
+        this.loadApiKey();
+        this.updateApiStatus();
         this.addEventListeners();
         this.addInitialMessage();
         
@@ -123,6 +131,52 @@ class ResumeBot {
         }, 15000);
     }
     
+    // Update the API status indicator
+    updateApiStatus() {
+        const apiStatus = document.getElementById('api-status');
+        const apiHelpText = document.getElementById('api-help-text');
+        
+        if (!apiStatus) return;
+        
+        if (this.useGeminiAPI && this.apiKey) {
+            apiStatus.classList.add('enabled');
+            apiStatus.classList.remove('disabled');
+            apiStatus.querySelector('.api-status-text').textContent = 'Gemini';
+            
+            if (apiHelpText) {
+                apiHelpText.style.display = 'none';
+            }
+        } else {
+            apiStatus.classList.add('disabled');
+            apiStatus.classList.remove('enabled');
+            apiStatus.querySelector('.api-status-text').textContent = 'Basic';
+            
+            if (apiHelpText) {
+                apiHelpText.style.display = 'block';
+            }
+        }
+    }
+    
+    // Load saved API key from localStorage
+    loadApiKey() {
+        const savedApiKey = localStorage.getItem('geminiApiKey');
+        if (savedApiKey) {
+            this.apiKey = savedApiKey;
+            this.useGeminiAPI = true;
+        } else {
+            // If no API key is found, default to local response generation
+            this.useGeminiAPI = false;
+        }
+    }
+    
+    // Save API key to localStorage
+    saveApiKey(apiKey) {
+        localStorage.setItem('geminiApiKey', apiKey);
+        this.apiKey = apiKey;
+        this.useGeminiAPI = true;
+        this.updateApiStatus();
+    }
+    
     addEventListeners() {
         // Toggle chatbot visibility
         this.chatToggle.addEventListener('click', () => this.toggleChat());
@@ -135,6 +189,27 @@ class ResumeBot {
         this.chatInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 this.handleUserMessage();
+            }
+        });
+        
+        // Add event listener for the API key setup command
+        this.chatInput.addEventListener('input', (e) => {
+            const inputText = e.target.value.trim();
+            
+            // Special command to set the API key: /setapikey YOUR_API_KEY
+            if (inputText.startsWith('/setapikey ')) {
+                const apiKey = inputText.replace('/setapikey ', '').trim();
+                if (apiKey) {
+                    this.saveApiKey(apiKey);
+                    this.chatInput.value = '';
+                    this.addSystemMessage("✅ Gemini API key saved! The chatbot will now use Gemini AI for responses.");
+                }
+            }
+            
+            // Command to show API key instructions
+            else if (inputText === '/apihelp') {
+                this.chatInput.value = '';
+                this.showApiKeyInstructions();
             }
         });
     }
@@ -183,7 +258,20 @@ class ResumeBot {
     
     addInitialMessage() {
         setTimeout(() => {
-            this.addBotMessage("👋 Hi there! I'm an AI assistant that can tell you all about Alapan Das. Ask me anything about his skills, projects, education, experience, or interests!");
+            let welcomeMessage = "👋 Hi there! I'm an AI assistant that can tell you all about Alapan Das. Ask me anything about his skills, projects, education, experience, or interests!";
+            
+            if (this.useGeminiAPI) {
+                welcomeMessage += "\n\n✨ I'm powered by Google's Gemini AI for more intelligent and dynamic responses!";
+            }
+            
+            this.addBotMessage(welcomeMessage);
+            
+            // If API is not configured, show a hint after a delay
+            if (!this.useGeminiAPI) {
+                setTimeout(() => {
+                    this.addSystemMessage("💡 Tip: To enable advanced AI capabilities, set your Gemini API key using the command: /setapikey YOUR_API_KEY");
+                }, 2000);
+            }
         }, 500);
     }
     
@@ -203,14 +291,18 @@ class ResumeBot {
         this.showTypingIndicator();
         
         // Process the message and generate a response
-        setTimeout(() => {
-            const response = this.generateResponse(message);
-            this.hideTypingIndicator();
-            this.addBotMessageWithTypingEffect(response);
-            
-            // Add to conversation history
-            this.conversationHistory.push({ role: 'assistant', content: response });
-        }, 800);
+        if (this.useGeminiAPI) {
+            this.getGeminiResponse(message);
+        } else {
+            setTimeout(() => {
+                const response = this.generateResponse(message);
+                this.hideTypingIndicator();
+                this.addBotMessageWithTypingEffect(response);
+                
+                // Add to conversation history
+                this.conversationHistory.push({ role: 'assistant', content: response });
+            }, 800);
+        }
     }
     
     showTypingIndicator() {
@@ -367,7 +459,7 @@ class ResumeBot {
         
         // Check for chatbot identity
         if (this.containsAny(lowercaseMsg, ['your name', 'who are you', 'chatbot name', 'are you human', 'are you ai'])) {
-            return `I'm an AI assistant representing ${this.resumeData.name}. While I'm not human, I've been programmed with detailed information about ${this.resumeData.name.split(' ')[0]}'s resume, skills, projects, and professional experience. Feel free to ask me anything about him!`;
+            return `I'm Akyon, AI assistant representing ${this.resumeData.name}. While I'm not human, I've been programmed with detailed information about ${this.resumeData.name.split(' ')[0]}'s resume, skills, projects, and professional experience. Feel free to ask me anything about him!`;
         }
         
         // Personal information
@@ -732,6 +824,201 @@ class ResumeBot {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
+    }
+    
+    // New method to call Gemini AI API
+    async getGeminiResponse(message) {
+        // Prepare resume context for the AI
+        const resumeContext = this.prepareResumeContext();
+        
+        // Prepare conversation history for context
+        const recentMessages = this.conversationHistory.slice(-6); // Last 6 messages
+        let conversationContext = "";
+        
+        recentMessages.forEach(msg => {
+            if (msg.role === 'user') {
+                conversationContext += `User: ${msg.content}\n`;
+            } else {
+                conversationContext += `Assistant: ${msg.content}\n`;
+            }
+        });
+        
+        // Construct prompt for Gemini
+        const prompt = `
+You are an AI assistant for ${this.resumeData.name}'s resume portfolio website. 
+Your task is to answer questions about ${this.resumeData.name}'s skills, experience, education, projects, and other professional information.
+
+Here's the resume data:
+${resumeContext}
+
+Recent conversation:
+${conversationContext}
+
+User's current question: ${message}
+
+Provide a helpful, accurate, and engaging response based on the resume information. If you don't know the answer, don't make things up - just say you don't have that specific information. Keep responses clear, concise, and professional.
+`;
+
+        try {
+            // Call Gemini API
+            const response = await fetch(`${this.apiEndpoint}?key=${this.apiKey}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{
+                            text: prompt
+                        }]
+                    }]
+                })
+            });
+            
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Gemini API error:', errorData);
+                
+                // Handle common API errors
+                if (response.status === 400) {
+                    throw new Error('Invalid request to Gemini API. Check your prompt format.');
+                } else if (response.status === 401) {
+                    // Unauthorized - invalid API key
+                    this.useGeminiAPI = false;
+                    this.updateApiStatus();
+                    localStorage.removeItem('geminiApiKey');
+                    throw new Error('Invalid API key. Please set a valid Gemini API key.');
+                } else if (response.status === 429) {
+                    throw new Error('Too many requests to Gemini API. Please try again later.');
+                } else if (response.status === 500) {
+                    throw new Error('Gemini API server error. Please try again later.');
+                } else {
+                    throw new Error(`API request failed with status: ${response.status}`);
+                }
+            }
+            
+            const data = await response.json();
+            
+            // Check if we have valid response data
+            if (!data.candidates || data.candidates.length === 0) {
+                throw new Error('No response generated from Gemini API.');
+            }
+            
+            const aiResponse = data.candidates[0].content.parts[0].text;
+            
+            // Format API response as needed
+            const formattedResponse = this.formatGeminiResponse(aiResponse);
+            
+            // Display the response
+            this.hideTypingIndicator();
+            this.addBotMessageWithTypingEffect(formattedResponse);
+            
+            // Add to conversation history
+            this.conversationHistory.push({ role: 'assistant', content: formattedResponse });
+            
+        } catch (error) {
+            console.error('Error calling Gemini API:', error);
+            
+            // Show error message to user
+            if (error.message.includes('API key')) {
+                this.hideTypingIndicator();
+                this.addSystemMessage(`⚠️ ${error.message}`);
+            }
+            
+            // Fallback to local response generation if API fails
+            const fallbackResponse = this.generateResponse(message);
+            this.hideTypingIndicator();
+            this.addBotMessageWithTypingEffect(fallbackResponse);
+            
+            // Add to conversation history
+            this.conversationHistory.push({ role: 'assistant', content: fallbackResponse });
+        }
+    }
+    
+    // Format and clean up Gemini API response
+    formatGeminiResponse(response) {
+        // Remove any unwanted prefixes that might come from the API
+        let cleanResponse = response.replace(/^(Assistant:|AI:|Chatbot:)/i, '').trim();
+        
+        // Add HTML formatting if needed
+        if (!cleanResponse.includes('<')) {
+            // Add paragraph tags for plain text
+            cleanResponse = `<p>${cleanResponse.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>')}</p>`;
+        }
+        
+        return cleanResponse;
+    }
+    
+    // Prepare resume context for the AI
+    prepareResumeContext() {
+        // Convert resumeData to a string representation for the AI
+        return JSON.stringify(this.resumeData, null, 2);
+    }
+    
+    // Add a system message (not from the bot or user)
+    addSystemMessage(message) {
+        const messageElem = document.createElement('div');
+        messageElem.classList.add('chat-message', 'system-message');
+        messageElem.innerHTML = `<div class="message-content">${message}</div>`;
+        this.chatMessages.appendChild(messageElem);
+        
+        // Auto-scroll to bottom
+        this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+    }
+    
+    // Test Gemini API connection
+    async testApiConnection() {
+        if (!this.apiKey) {
+            return false;
+        }
+        
+        try {
+            const response = await fetch(`${this.apiEndpoint}?key=${this.apiKey}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{
+                            text: "Hello, this is a test message. Please respond with 'Connection successful'."
+                        }]
+                    }]
+                })
+            });
+            
+            if (!response.ok) {
+                return false;
+            }
+            
+            return true;
+        } catch (error) {
+            console.error('API test connection failed:', error);
+            return false;
+        }
+    }
+    
+    // Show instructions for obtaining and setting up a Gemini API key
+    showApiKeyInstructions() {
+        const instructions = `
+        <div class="api-instructions">
+            <h4>How to Get a Gemini API Key</h4>
+            <ol>
+                <li>Go to <a href="https://ai.google.dev/" target="_blank">Google AI Studio</a></li>
+                <li>Sign in with your Google account</li>
+                <li>Click on "Get API key" in the menu</li>
+                <li>Create a new API key or use an existing one</li>
+                <li>Copy your API key</li>
+            </ol>
+            <h4>How to Use Your API Key</h4>
+            <p>Type the following command in the chat input:</p>
+            <code>/setapikey YOUR_API_KEY</code>
+            <p>Replace YOUR_API_KEY with the actual key you copied.</p>
+            <p class="note">Note: Your API key is stored locally in your browser and is not sent to any server except Google's Gemini API.</p>
+        </div>
+        `;
+        
+        this.addSystemMessage(instructions);
     }
 }
 

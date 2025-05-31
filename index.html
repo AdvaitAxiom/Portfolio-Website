@@ -440,6 +440,10 @@
         <div class="chat-container" id="chat-container">
             <div class="chat-header">
                 <h3>AI Resume Assistant</h3>
+                <div class="api-status" id="api-status">
+                    <span class="api-status-dot"></span>
+                    <span class="api-status-text">API</span>
+                </div>
                 <div class="close-chat" id="close-chat" aria-label="Close chat">
                     <i class="fas fa-times"></i>
                 </div>
@@ -454,6 +458,9 @@
                 <button id="send-message" aria-label="Send message">
                     <i class="fas fa-paper-plane"></i>
                 </button>
+            </div>
+            <div class="api-help-text" id="api-help-text">
+                Type "/setapikey YOUR_GEMINI_API_KEY" to enable advanced AI responses
             </div>
         </div>
     </div>
