@@ -16,7 +16,7 @@ class ResumeBot {
         this.chatNotification = document.querySelector('.chat-notification');
         
         // Gemini API configuration
-        this.apiKey = "YOUR_GEMINI_API_KEY"; // Replace with your actual Gemini API key
+        this.apiKey = "AIzaSyA3eUqFDFjZSZEXuLCzYboe8k6q1Nt6s6Q"; // Replace with your actual Gemini API key
         this.apiEndpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
         this.useGeminiAPI = true; // Set to false to use local response generation instead of API
         
@@ -28,15 +28,15 @@ class ResumeBot {
         
         // Enhanced resume data with more details for AI responses
         this.resumeData = {
-            name: "YOUR NAME",  // Replace with your actual name
-            location: "YOUR LOCATION",  // e.g., "San Francisco, CA"
-            email: "YOUR EMAIL",  // Your contact email
-            phone: "YOUR PHONE",  // Your phone number
+            name: "Alapan Das",  // Replace with your actual name
+            location: "Kolkata, West Bengal",  // e.g., "San Francisco, CA"
+            email: "alapandas123@gmail.com",  // Your contact email
+            phone: "+91 9088969456",  // Your phone number
             education: {
-                university: "YOUR UNIVERSITY",  // e.g., "Stanford University"
-                degree: "YOUR DEGREE",  // e.g., "Master of Computer Science"
-                graduationYear: "GRADUATION YEAR",  // e.g., "2023" or "Expected 2025"
-                achievements: "YOUR ACADEMIC ACHIEVEMENTS"  // e.g., "Graduated with honors, 3.9 GPA"
+                university: "Calcutta University",  // e.g., "Stanford University"
+                degree: "B.Tech in Information Technology",  // e.g., "Master of Computer Science"
+                graduationYear: "2026(Expected)",  // e.g., "2023" or "Expected 2025"
+                achievements: "Finalist in Smart Bengal Hackathon 2025"  // e.g., "Graduated with honors, 3.9 GPA"
             },
             about: "YOUR PROFESSIONAL SUMMARY",  // A paragraph about yourself
             roles: ["ROLE 1", "ROLE 2", "ROLE 3"],  // e.g., ["Software Engineer", "Full-Stack Developer"]
