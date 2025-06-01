@@ -16,8 +16,7 @@ class ResumeBot {
         this.chatNotification = document.querySelector('.chat-notification');
         
         // Gemini API configuration
-        this.apiKey = "AIzaSyA3eUqFDFjZSZEXuLCzYboe8k6q1Nt6s6Q"; // Replace with your actual Gemini API key
-        this.apiEndpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
+        this.apiEndpoint = "/api/gemini"; // Use server-side proxy endpoint
         this.useGeminiAPI = true; // Set to false to use local response generation instead of API
         
         this.isOpen = false;
@@ -138,7 +137,7 @@ class ResumeBot {
         
         if (!apiStatus) return;
         
-        if (this.useGeminiAPI && this.apiKey) {
+        if (this.useGeminiAPI) {
             apiStatus.classList.add('enabled');
             apiStatus.classList.remove('disabled');
             apiStatus.querySelector('.api-status-text').textContent = 'Gemini';
@@ -159,24 +158,8 @@ class ResumeBot {
     
     // Load saved API key from localStorage
     loadApiKey() {
-        const savedApiKey = localStorage.getItem('geminiApiKey');
-        if (savedApiKey) {
-            this.apiKey = savedApiKey;
-            this.useGeminiAPI = true;
-        } else if (this.apiKey) {
-            // Use the hardcoded API key if present
-            this.useGeminiAPI = true;
-        } else {
-            this.useGeminiAPI = false;
-        }
-    }
-    
-    // Save API key to localStorage
-    saveApiKey(apiKey) {
-        localStorage.setItem('geminiApiKey', apiKey);
-        this.apiKey = apiKey;
+        // No need to load or store API key on frontend when using proxy
         this.useGeminiAPI = true;
-        this.updateApiStatus();
     }
     
     addEventListeners() {
@@ -832,11 +815,9 @@ class ResumeBot {
     async getGeminiResponse(message) {
         // Prepare resume context for the AI
         const resumeContext = this.prepareResumeContext();
-        
         // Prepare conversation history for context
         const recentMessages = this.conversationHistory.slice(-6); // Last 6 messages
         let conversationContext = "";
-        
         recentMessages.forEach(msg => {
             if (msg.role === 'user') {
                 conversationContext += `User: ${msg.content}\n`;
@@ -844,26 +825,11 @@ class ResumeBot {
                 conversationContext += `Assistant: ${msg.content}\n`;
             }
         });
-        
         // Construct prompt for Gemini
-        const prompt = `
-You are an AI assistant for ${this.resumeData.name}'s resume portfolio website. 
-Your task is to answer questions about ${this.resumeData.name}'s skills, experience, education, projects, and other professional information.
-
-Here's the resume data:
-${resumeContext}
-
-Recent conversation:
-${conversationContext}
-
-User's current question: ${message}
-
-Provide a helpful, accurate, and engaging response based on the resume information. If you don't know the answer, don't make things up - just say you don't have that specific information. Keep responses clear, concise, and professional.
-`;
-
+        const prompt = `\nYou are an AI assistant for ${this.resumeData.name}'s resume portfolio website. \nYour task is to answer questions about ${this.resumeData.name}'s skills, experience, education, projects, and other professional information.\n\nHere's the resume data:\n${resumeContext}\n\nRecent conversation:\n${conversationContext}\n\nUser's current question: ${message}\n\nProvide a helpful, accurate, and engaging response based on the resume information. If you don't know the answer, don't make things up - just say you don't have that specific information. Keep responses clear, concise, and professional.\n`;
         try {
-            // Call Gemini API
-            const response = await fetch(`${this.apiEndpoint}?key=${this.apiKey}`, {
+            // Call Gemini API via proxy
+            const response = await fetch(this.apiEndpoint, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -876,63 +842,27 @@ Provide a helpful, accurate, and engaging response based on the resume informati
                     }]
                 })
             });
-            
             if (!response.ok) {
                 const errorData = await response.json();
                 console.error('Gemini API error:', errorData);
-                
-                // Handle common API errors
-                if (response.status === 400) {
-                    throw new Error('Invalid request to Gemini API. Check your prompt format.');
-                } else if (response.status === 401) {
-                    // Unauthorized - invalid API key
-                    this.useGeminiAPI = false;
-                    this.updateApiStatus();
-                    localStorage.removeItem('geminiApiKey');
-                    throw new Error('Invalid API key. Please set a valid Gemini API key.');
-                } else if (response.status === 429) {
-                    throw new Error('Too many requests to Gemini API. Please try again later.');
-                } else if (response.status === 500) {
-                    throw new Error('Gemini API server error. Please try again later.');
-                } else {
-                    throw new Error(`API request failed with status: ${response.status}`);
-                }
+                throw new Error(`API request failed with status: ${response.status}`);
             }
-            
             const data = await response.json();
-            
-            // Check if we have valid response data
             if (!data.candidates || data.candidates.length === 0) {
                 throw new Error('No response generated from Gemini API.');
             }
-            
             const aiResponse = data.candidates[0].content.parts[0].text;
-            
-            // Format API response as needed
             const formattedResponse = this.formatGeminiResponse(aiResponse);
-            
-            // Display the response
             this.hideTypingIndicator();
             this.addBotMessageWithTypingEffect(formattedResponse);
-            
-            // Add to conversation history
             this.conversationHistory.push({ role: 'assistant', content: formattedResponse });
-            
         } catch (error) {
             console.error('Error calling Gemini API:', error);
-            
-            // Show error message to user
-            if (error.message.includes('API key')) {
-                this.hideTypingIndicator();
-                this.addSystemMessage(`⚠️ ${error.message}`);
-            }
-            
-            // Fallback to local response generation if API fails
+            this.hideTypingIndicator();
+            this.addSystemMessage(`⚠️ ${error.message}`);
             const fallbackResponse = this.generateResponse(message);
             this.hideTypingIndicator();
             this.addBotMessageWithTypingEffect(fallbackResponse);
-            
-            // Add to conversation history
             this.conversationHistory.push({ role: 'assistant', content: fallbackResponse });
         }
     }
