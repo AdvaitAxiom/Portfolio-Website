@@ -163,8 +163,10 @@ class ResumeBot {
         if (savedApiKey) {
             this.apiKey = savedApiKey;
             this.useGeminiAPI = true;
+        } else if (this.apiKey) {
+            // Use the hardcoded API key if present
+            this.useGeminiAPI = true;
         } else {
-            // If no API key is found, default to local response generation
             this.useGeminiAPI = false;
         }
     }
