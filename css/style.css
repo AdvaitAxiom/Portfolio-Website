@@ -2462,3 +2462,10 @@ body::after {
         transform: translate(10px, 10px) rotate(5deg);
     }
 }
+
+.portfolio-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px; /* Minimal but clear space from project grid */
+}
