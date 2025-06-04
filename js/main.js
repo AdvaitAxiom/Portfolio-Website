@@ -10,6 +10,10 @@ window.addEventListener('load', () => {
     const preloader = document.querySelector('.preloader');
     setTimeout(() => {
         preloader.classList.add('hidden');
+        // Remove from DOM after transition
+        setTimeout(() => {
+            preloader.parentNode.removeChild(preloader);
+        }, 500); // match your CSS transition duration
     }, 500);
 });
 
