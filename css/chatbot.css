@@ -16,6 +16,13 @@
     --chat-transition: all 0.3s ease;
 }
 
+/* Dark mode specific variables - these will be used when dark-style.css is active */
+/* The dark-style.css already redefines --white-color as #333333 */
+/* We just need to redefine the bot message background for dark mode */
+:root {
+    --chat-bot-bg-dark: #444444;
+}
+
 /* Chatbot Container */
 .chat-bot {
     position: fixed;
@@ -192,6 +199,8 @@
     color: white;
 }
 
+/* Replace the [data-theme="dark"] selectors with these */
+/* Bot Message - Dark mode specific style */
 .bot-message .message-content {
     background: var(--chat-bot-bg);
     color: var(--chat-text);
@@ -202,6 +211,49 @@
     font-size: 14px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
+
+/* Chat Input Area - Border color will automatically adapt */
+.chat-input-area {
+    padding: 15px;
+    border-top: 1px solid var(--chat-border);
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--chat-border);
+    border-radius: 30px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background: var(--chat-bg);
+    color: var(--chat-text);
+}
+
+/* Remove these dark mode selectors as they won't work with your implementation */
+/* 
+[data-theme="dark"] .chat-container {
+    background: var(--dark-bg-secondary);
+    border-color: var(--dark-border-color);
+}
+
+[data-theme="dark"] .bot-message .message-content {
+    background: var(--dark-bg-color);
+    color: var(--white-color);
+}
+
+[data-theme="dark"] .chat-input-area {
+    border-top-color: var(--dark-border-color);
+}
+
+[data-theme="dark"] .chat-input-area input {
+    background: var(--dark-bg-color);
+    color: var(--white-color);
+    border-color: var(--dark-border-color);
+}
+*/
 
 /* User Message */
 .user-message {
@@ -276,13 +328,15 @@
 
 /* Dark Mode Support */
 [data-theme="dark"] .chat-container {
-    background: var(--dark-bg-secondary);
-    border-color: var(--dark-border-color);
+    background: var(--dark-bg-secondary, #222);
+    border-color: var(--dark-border-color, #444);
 }
 
 [data-theme="dark"] .bot-message .message-content {
-    background: var(--dark-bg-color);
-    color: var(--white-color);
+    background: #23272f; /* lighter dark for contrast */
+    color: #fff;         /* pure white text */
+    border: 1px solid #444;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 [data-theme="dark"] .chat-input-area {
@@ -290,9 +344,24 @@
 }
 
 [data-theme="dark"] .chat-input-area input {
-    background: var(--dark-bg-color);
-    color: var(--white-color);
-    border-color: var(--dark-border-color);
+    background: #23272f;
+    color: #fff;
+    border-color: #444;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .chat-input-area button {
+    background: #3a2e6c;
+    color: #fff;
+    border: 1px solid #5a4fcf;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .user-message p {
+    background: #3a2e6c; /* a lighter, more saturated version of your primary color */
+    color: #fff;
+    border: 1px solid #5a4fcf;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 /* Message Content Styles */
@@ -442,4 +511,4 @@
 
 [data-theme="dark"] .api-instructions code {
     background: rgba(255, 255, 255, 0.15);
-} 
+}
