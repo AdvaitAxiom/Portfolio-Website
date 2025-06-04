@@ -674,6 +674,7 @@ document.addEventListener('DOMContentLoaded', () => {
             darkTheme.disabled = true;
             localStorage.setItem('darkMode', 'disabled');
         }
+        // Do NOT show preloader when toggling theme
     });
 });
 
