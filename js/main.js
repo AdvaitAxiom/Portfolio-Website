@@ -663,9 +663,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Toggle theme when checkbox is clicked
     themeToggle.addEventListener('change', function() {
-        const preloader = document.getElementById('theme-preloader');
-        if (preloader) preloader.style.display = 'flex';
-
         if (this.checked) {
             // Switch to dark mode
             lightTheme.disabled = true;
@@ -677,18 +674,6 @@ document.addEventListener('DOMContentLoaded', () => {
             darkTheme.disabled = true;
             localStorage.setItem('darkMode', 'disabled');
         }
-
-        // Wait for the CSS to apply, then hide preloader
-        // Use a short timeout as a fallback for the onload event
-        if (darkTheme) {
-            darkTheme.addEventListener('load', function handler() {
-                if (preloader) preloader.style.display = 'none';
-                darkTheme.removeEventListener('load', handler);
-            });
-        }
-        setTimeout(() => {
-            if (preloader) preloader.style.display = 'none';
-        }, 500); // Adjust time as needed
     });
 });
 
