@@ -646,40 +646,32 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(style);
 });
 
-// Theme Toggle Functionality - Simplified
+// Theme Toggle Functionality - Class Toggle Version
+// Remove previous theme toggle logic and replace with class toggling
+
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle-checkbox');
-    const lightTheme = document.getElementById('light-theme');
-    const darkTheme = document.getElementById('dark-theme');
-    
     // Check for saved theme preference
     const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
-    
+
     // Set initial theme
     if (isDarkMode) {
-        lightTheme.disabled = true;
-        darkTheme.disabled = false;
+        document.body.classList.add('dark-mode');
         themeToggle.checked = true;
     } else {
-        lightTheme.disabled = false;
-        darkTheme.disabled = true;
+        document.body.classList.remove('dark-mode');
         themeToggle.checked = false;
     }
-    
+
     // Toggle theme when checkbox is clicked
     themeToggle.addEventListener('change', function() {
         if (this.checked) {
-            // Switch to dark mode
-            lightTheme.disabled = true;
-            darkTheme.disabled = false;
+            document.body.classList.add('dark-mode');
             localStorage.setItem('darkMode', 'enabled');
         } else {
-            // Switch to light mode
-            lightTheme.disabled = false;
-            darkTheme.disabled = true;
+            document.body.classList.remove('dark-mode');
             localStorage.setItem('darkMode', 'disabled');
         }
-        // Do NOT show preloader when toggling theme
     });
 });
 
