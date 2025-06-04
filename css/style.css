@@ -1341,22 +1341,111 @@ h1, h2, h3, h4 {
 body.dark-mode {
     --primary-color: #9187FF;
     --secondary-color: #FF9A76;
+    --accent-color: #b088f9;
+    --highlight-color: #a5b4fc;
     --dark-color: #f9f9f9;
     --light-color: #1a1a1a;
     --text-color: #e0e0e0;
     --gray-color: #aaaaaa;
     --white-color: #333333;
+    --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    --primary-color-rgb: 145, 135, 255;
+    --secondary-color-rgb: 255, 154, 118;
+    --accent-color-rgb: 176, 136, 249;
 }
 
-/* Background colors for dark mode */
 body.dark-mode {
-    background-color: var(--light-color);
     color: var(--text-color);
+    background-color: var(--light-color);
+}
+
+body.dark-mode body::before {
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(145, 135, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(176, 136, 249, 0.03) 0%, transparent 50%);
+}
+
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4 {
+    color: var(--dark-color);
+}
+
+body.dark-mode section:nth-child(even) {
+    background-color: #222;
+}
+
+body.dark-mode section:nth-child(even)::before {
+    background-image: repeating-linear-gradient(
+        -45deg,
+        rgba(145, 135, 255, 0.02) 0,
+        rgba(145, 135, 255, 0.02) 1px,
+        transparent 1px,
+        transparent 16px
+    );
+}
+
+body.dark-mode section:nth-child(odd) {
+    background-color: var(--light-color);
+}
+
+body.dark-mode section:nth-child(odd)::before {
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(176, 136, 249, 0.02) 0,
+        rgba(176, 136, 249, 0.02) 1px,
+        transparent 1px,
+        transparent 16px
+    );
+}
+
+body.dark-mode .section-header h2 {
+    color: var(--dark-color);
+}
+
+body.dark-mode .section-header h2::before {
+    background: rgba(30, 32, 40, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .section-header h2 span::after {
+    background: var(--primary-color);
+    opacity: 0.7;
+}
+
+body.dark-mode .underline {
+    background: var(--gradient);
+    box-shadow: 0 2px 10px rgba(145, 135, 255, 0.3);
+}
+
+body.dark-mode .primary-btn {
+    background: var(--gradient);
+    color: white;
+    box-shadow: 0 4px 15px rgba(145, 135, 255, 0.2);
+}
+
+body.dark-mode .primary-btn:hover {
+    box-shadow: 0 6px 20px rgba(145, 135, 255, 0.3);
+}
+
+body.dark-mode .secondary-btn {
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+body.dark-mode .secondary-btn:hover {
+    background: var(--primary-color);
+    color: #1a1a1a;
+}
+
+body.dark-mode .navbar {
+    background-color: transparent;
 }
 
 body.dark-mode .navbar.scrolled {
-    background-color: #222;
+    background: rgba(29, 30, 38, 0.8);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -1364,26 +1453,213 @@ body.dark-mode .logo a {
     color: var(--dark-color);
 }
 
-body.dark-mode .hero {
-    background-color: var(--light-color);
+body.dark-mode .nav-links a {
+    color: var(--dark-color);
 }
 
-body.dark-mode .services {
+body.dark-mode .nav-links a:hover,
+body.dark-mode .nav-links a.active {
+    color: var(--primary-color);
+}
+
+body.dark-mode .menu-btn__burger,
+body.dark-mode .menu-btn__burger::before,
+body.dark-mode .menu-btn__burger::after {
+    background: var(--dark-color);
+}
+
+body.dark-mode .hero {
+    background-color: var(--light-color);
+    background: linear-gradient(
+        135deg,
+        rgba(26, 27, 35, 0.97) 0%,
+        rgba(22, 23, 29, 0.97) 25%,
+        rgba(24, 25, 33, 0.97) 50%,
+        rgba(22, 23, 29, 0.97) 75%,
+        rgba(26, 27, 35, 0.97) 100%
+    );
+    background-size: 400% 400%;
+    animation: darkGradientShift 15s ease infinite;
+}
+
+body.dark-mode .hero-img-inner {
+    background-color: #2d2d2d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .typed-text {
+    color: var(--secondary-color);
+}
+
+body.dark-mode .cursor {
+    background-color: var(--secondary-color);
+}
+
+body.dark-mode .about {
     background-color: #222;
 }
 
-body.dark-mode .service-card,
-body.dark-mode .portfolio-info,
-body.dark-mode .contact-form {
+body.dark-mode .about::after {
+    background-image: radial-gradient(circle at 90% 90%, rgba(145, 135, 255, 0.05) 0%, transparent 25%);
+}
+
+body.dark-mode .about-img-inner {
+    background-color: #2d2d2d;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .about-profile-image {
+    /* no change needed, but keep for clarity */
+}
+
+body.dark-mode .about-img-container::before {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+}
+
+body.dark-mode .about-img-container::after {
+    background: radial-gradient(
+        circle,
+        rgba(var(--primary-color-rgb), 0.3) 0%,
+        rgba(var(--secondary-color-rgb), 0.15) 50%,
+        rgba(25, 25, 25, 0) 70%
+    );
+    filter: blur(25px);
+    opacity: 0.6;
+    animation: subtlePulse 6s ease-in-out infinite;
+}
+
+body.dark-mode .about-img-container:hover::before {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+}
+
+body.dark-mode .about-img-container:hover .about-profile-image {
+    transform: scale(1.05);
+}
+
+body.dark-mode .about-text h3 {
+    color: var(--dark-color);
+}
+
+body.dark-mode .about-text p {
+    color: var(--gray-color);
+}
+
+body.dark-mode .skill-bar {
+    background: #444;
+}
+
+body.dark-mode .skill-per {
+    background: var(--gradient);
+}
+
+body.dark-mode .services {
+    background-color: var(--light-color);
+}
+
+body.dark-mode .service-card {
     background: #2d2d2d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .service-card::before {
+    background: linear-gradient(135deg, rgba(145, 135, 255, 0.03) 0%, transparent 100%);
+}
+
+body.dark-mode .service-card h3 {
+    color: var(--dark-color);
+}
+
+body.dark-mode .service-card p {
+    color: var(--gray-color);
+}
+
+body.dark-mode .portfolio {
+    background-color: var(--dark-color);
 }
 
 body.dark-mode .portfolio-info {
-    background: rgba(45, 45, 45, 0.95);
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.8) 70%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
+}
+
+body.dark-mode .portfolio-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.6) 60%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    opacity: 0.6;
+}
+
+body.dark-mode .portfolio-item {
+    background-color: #1a1a1a;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .portfolio-link {
+    background: white;
+    color: var(--primary-color);
+}
+
+body.dark-mode .portfolio-link:hover {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+}
+
+body.dark-mode .view-more-btn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    box-shadow: 0 5px 15px rgba(145, 135, 255, 0.2);
+}
+
+body.dark-mode .view-more-btn::before {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+}
+
+body.dark-mode .view-more-btn:hover {
+    box-shadow: 0 10px 25px rgba(145, 135, 255, 0.3);
+}
+
+body.dark-mode .view-more-btn:hover::before {
+    opacity: 1;
+}
+
+body.dark-mode .contact {
+    background-color: var(--light-color);
+}
+
+body.dark-mode .contact::before {
+    background: rgba(145, 135, 255, 0.05);
+}
+
+body.dark-mode .contact::after {
+    background: rgba(255, 125, 59, 0.05);
+}
+
+body.dark-mode .contact-detail {
+    background: rgba(45, 45, 45, 0.8);
 }
 
 body.dark-mode .contact-detail i {
-    background: #333;
+    background: linear-gradient(135deg, rgba(145, 135, 255, 0.2), rgba(145, 135, 255, 0.3));
+    color: var(--primary-color);
+}
+
+body.dark-mode .contact-detail:hover i {
+    background: var(--primary-color);
+    color: var(--light-color);
+}
+
+body.dark-mode .contact-form {
+    background: #2d2d2d;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 body.dark-mode .form-group input,
@@ -1393,87 +1669,156 @@ body.dark-mode .form-group textarea {
     color: var(--text-color);
 }
 
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus,
+body.dark-mode .form-group input:valid,
+body.dark-mode .form-group textarea:valid {
+    background: rgba(51, 51, 51, 0.9);
+}
+
+body.dark-mode .form-group input:focus ~ label,
+body.dark-mode .form-group textarea:focus ~ label,
+body.dark-mode .form-group input:valid ~ label,
+body.dark-mode .form-group textarea:valid ~ label {
+    color: var(--primary-color);
+    background-color: rgba(45, 45, 45, 0.8);
+}
+
+body.dark-mode .contact-form .primary-btn {
+    background: var(--gradient);
+    color: white;
+}
+
+body.dark-mode .contact-form .primary-btn::before {
+    background: var(--secondary-color);
+}
+
+body.dark-mode .contact-form .primary-btn:hover::before {
+    width: 100%;
+}
+
 body.dark-mode .preloader {
-    background: #222;
+    background: var(--white-color);
 }
 
-body.dark-mode .menu-btn__burger,
-body.dark-mode .menu-btn__burger::before,
-body.dark-mode .menu-btn__burger::after {
-    background: var(--text-color);
+body.dark-mode .preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
-/* Fix for responsive menu in dark mode */
-@media (max-width: 768px) {
-    body.dark-mode .nav-links {
-        background: #2d2d2d;
-    }
+body.dark-mode .loader {
+    border-top: 4px solid var(--primary-color);
 }
 
-/* Add the loaded class to fix initial transition */
-body.loaded * {
-    transition: all 0.3s ease;
+body.dark-mode .theme-toggle label {
+    background: linear-gradient(40deg, #8983F7, #A3DAFB);
 }
 
-/* Simplified hover effect - just zoom and border color change */
-.hero-img-container:hover::before {
-    background: conic-gradient(
-        var(--secondary-color),
-        var(--highlight-color),
-        var(--primary-color),
-        var(--accent-color),
-        var(--secondary-color)
+body.dark-mode .theme-toggle input:checked + label {
+    background: linear-gradient(40deg, #FFD86F, #FC6262);
+}
+
+body.dark-mode .theme-toggle input:checked + label .toggle-ball {
+    transform: translateX(30px);
+}
+
+body.dark-mode .theme-toggle .fa-sun {
+    color: #FFD86F;
+}
+
+body.dark-mode .theme-toggle .fa-moon {
+    color: #c4c9d1;
+}
+
+body.dark-mode .toggle-ball {
+    background-color: white;
+}
+
+body.dark-mode .back-to-top {
+    background: var(--primary-color);
+}
+
+body.dark-mode .back-to-top:hover {
+    background: var(--secondary-color);
+}
+
+body.dark-mode footer {
+    background-color: #222;
+    color: var(--dark-color);
+}
+
+body.dark-mode footer::before {
+    background-image: repeating-linear-gradient(
+        -45deg,
+        rgba(145, 135, 255, 0.02) 0,
+        rgba(145, 135, 255, 0.02) 1px,
+        transparent 1px,
+        transparent 16px
     );
 }
 
-.hero-img-container:hover .profile-image {
-    transform: scale(1.05);
+body.dark-mode .footer-content {
+    color: inherit;
 }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    .hero-img-container {
-        width: 350px;
-        height: 350px;
-    }
+body.dark-mode .education-card {
+    background: #2d2d2d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-@media (max-width: 768px) {
-    .hero-img-container {
-        width: 300px;
-        height: 300px;
-        margin: 0 auto;
-    }
+body.dark-mode .education-card::before {
+    background: var(--gradient);
 }
 
-@media (max-width: 576px) {
-    .hero-img-container {
-        width: 250px;
-        height: 250px;
-    }
+body.dark-mode .education-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive adjustments for About Section */
-@media (max-width: 992px) {
-    .about-img-container {
-        width: 350px;
-        height: 450px;
-    }
+body.dark-mode .education-card:hover::before {
+    transform: scaleX(1);
 }
 
-@media (max-width: 768px) {
-    .about-img-container {
-        width: 300px;
-        height: 400px;
-        margin: 0 auto 30px;
-    }
+body.dark-mode .education-year {
+    background: rgba(145, 135, 255, 0.15);
+    color: var(--primary-color);
 }
 
-@media (max-width: 576px) {
-    .about-img-container {
-        width: 250px;
-        height: 350px;
-    }
+body.dark-mode .education-card:hover .education-year {
+    background: rgba(145, 135, 255, 0.25);
+}
+
+body.dark-mode .education-degree {
+    color: var(--dark-color);
+}
+
+body.dark-mode .education-card:hover .education-degree {
+    color: var(--primary-color);
+}
+
+body.dark-mode .education-institution {
+    color: var(--gray-color);
+}
+
+body.dark-mode .education-card:hover .education-institution {
+    color: var(--text-color);
+}
+
+body.dark-mode .education-description {
+    color: var(--gray-color);
+}
+
+body.dark-mode .education-card:hover .education-description {
+    color: var(--text-color);
+}
+
+body.dark-mode .education-icon {
+    color: rgba(145, 135, 255, 0.2);
+}
+
+body.dark-mode .education-card:hover .education-icon {
+    color: rgba(145, 135, 255, 0.4);
+    transform: scale(1.1) rotate(10deg);
 }
 
 /* Optional: Subtle animated gradient for hero section */
@@ -1796,4 +2141,324 @@ body::after {
         transform: translate(10px, 10px) rotate(5deg);
     }
 }
-body
+
+/* Optional: Subtle animated gradient for hero section */
+@keyframes darkGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Optional: Subtle dot pattern */
+.portfolio, .contact {
+    position: relative;
+}
+
+.portfolio::before, .contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+        rgba(67, 97, 238, 0.03) 1px,
+        transparent 1px
+    );
+    background-size: 20px 20px, 30px 30px;
+    background-position: 0 0, 15px 15px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.portfolio .container, .contact .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced bottom footer */
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 30px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        -45deg,
+        rgba(67, 97, 238, 0.02) 0,
+        rgba(67, 97, 238, 0.02) 1px,
+        transparent 1px,
+        transparent 16px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Add subtle noise texture overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJTUUH4AcMDhsNvsiwFAAAAQVJREFUaN7t2MEJAkEQBdCXLTdYgAmIJ0EQwURMxExMxEg8CIKC4P+4h3F23Wa3ByGr1fP+VPU0M8DP7xWv+ESn3utGT4y3vRLfEXhGj1sMeEeHrY3oMIbbRoBHlHgzA9RoceUZGArU+Iog2lWL1QTQYYfbWREHfKDFITr8HJ3ND0PiU5HAWqzQYB81dmkV2U9YOo9YYpMWcJwxBaexQIPldMR4A+jvRJcphR9Zxf7A24xV6TDi9ivA0ZlQnlGcuQmVZ3YWdq0sRG9EdEQ0EVERkUVEFBFRRGQREUVEFBFZREQRERWRi9hFJBOKiCgisoj8p4hkEZFFRBYRUUREEZFFRBQRUURkETHUF68QmNBLDui+AAAAAElFTkSuQmCC');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* Subtle card hover enhancement */
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Button enhancements */
+.primary-btn, .view-more-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-btn::after, .view-more-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+    transition: transform 0.5s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.primary-btn:hover::after, .view-more-btn:hover::after {
+    transform: rotate(30deg) translate(10%, 10%);
+}
+
+.primary-btn span, .view-more-btn span {
+    position: relative;
+    z-index: 2;
+}
+
+/* Keep portfolio text visibility fixes while using original colors */
+.portfolio-info {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.7) 70%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+}
+
+.portfolio-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.6) 60%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    opacity: 0.6;
+}
+
+/* Enhanced Contact Section Background for Light Mode */
+.contact {
+    background-color: var(--light-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add decorative background elements similar to dark mode */
+.contact::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    background: rgba(78, 65, 217, 0.05);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.contact::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 125, 59, 0.05);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Ensure content is above background */
+.contact .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced styling for contact details */
+.contact-detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contact-detail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.contact-detail i {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(78, 65, 217, 0.1), rgba(78, 65, 217, 0.2));
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-right: 20px;
+    transition: all 0.3s ease;
+}
+
+.contact-detail:hover i {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* Enhanced styling for contact form */
+.contact-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(78, 65, 217, 0.1);
+}
+
+.contact-form:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(78, 65, 217, 0.1);
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 10px rgba(78, 65, 217, 0.1);
+}
+
+/* Add subtle pattern overlay */
+.contact {
+    position: relative;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(rgba(78, 65, 217, 0.03) 1px, transparent 1px),
+        radial-gradient(rgba(255, 125, 59, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px, 30px 30px;
+    background-position: 0 0, 15px 15px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Add extra decorative elements for depth */
+.contact .container::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: -5%;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(
+        to bottom right,
+        rgba(78, 65, 217, 0.03),
+        rgba(255, 125, 59, 0.02)
+    );
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    z-index: -1;
+    animation: floatAnimation 8s ease-in-out infinite alternate;
+}
+
+.contact .container::after {
+    content: '';
+    position: absolute;
+    bottom: 5%;
+    left: -5%;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 125, 59, 0.02),
+        rgba(78, 65, 217, 0.03)
+    );
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    z-index: -1;
+    animation: floatAnimation 8s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate(10px, 10px) rotate(5deg);
+    }
+}
