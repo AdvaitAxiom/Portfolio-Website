@@ -411,7 +411,7 @@ section:nth-child(odd)::before {
 .hero {
     position: relative;
     height: 100vh;
-    min-height: 700px;
+    min-height: 140vh;
     display: flex;
     align-items: center;
     background-color: var(--light-color);
@@ -426,7 +426,7 @@ section:nth-child(odd)::before {
     );
     background-size: 400% 400%;
     animation: darkGradientShift 15s ease infinite;
-    padding-top: 40vh;
+    /* padding-top: 10vh; */
 }
 
 .hero::before {
