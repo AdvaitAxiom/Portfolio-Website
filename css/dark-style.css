@@ -426,6 +426,7 @@ section:nth-child(odd)::before {
     );
     background-size: 400% 400%;
     animation: darkGradientShift 15s ease infinite;
+    padding-top: 40vh;
 }
 
 .hero::before {
