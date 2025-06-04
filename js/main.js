@@ -15,6 +15,7 @@ window.addEventListener('load', () => {
             preloader.parentNode.removeChild(preloader);
         }, 500); // match your CSS transition duration
     }, 500);
+    preloader.style.display = 'none';
 });
 
 // Sticky Navbar
