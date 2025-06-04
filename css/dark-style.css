@@ -1431,7 +1431,7 @@ footer::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #222;
+    background: var(--white-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1445,68 +1445,19 @@ footer::before {
 }
 
 .loader {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    border: 4px solid #eee;
+    border-top: 4px solid var(--primary-color);
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    box-shadow: 0 20px 40px 0 rgba(145, 135, 255, 0.15);
-    animation: bounceBall 1.2s cubic-bezier(.68,-0.55,.27,1.55) infinite, colorShift 2.5s linear infinite;
-    position: relative;
+    animation: spin 1s linear infinite;
 }
 
-.loader::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -18px;
-    width: 40px;
-    height: 10px;
-    background: rgba(145, 135, 255, 0.12);
-    border-radius: 50%;
-    transform: translateX(-50%);
-    filter: blur(1px);
-    opacity: 0.7;
-    z-index: -1;
-    animation: shadowScale 1.2s cubic-bezier(.68,-0.55,.27,1.55) infinite;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-@keyframes bounceBall {
-    0%, 100% {
-        transform: translateY(0) scale(1,1);
-    }
-    10% {
-        transform: translateY(0) scale(1.1,0.9);
-    }
-    50% {
-        transform: translateY(-70px) scale(0.9,1.1);
-    }
-    60% {
-        transform: translateY(-60px) scale(1.05,0.95);
-    }
-    80% {
-        transform: translateY(-10px) scale(0.98,1.02);
-    }
-}
-
-@keyframes shadowScale {
-    0%, 100% {
-        transform: translateX(-50%) scaleX(1);
-        opacity: 0.7;
-    }
-    50% {
-        transform: translateX(-50%) scaleX(1.3);
-        opacity: 0.4;
-    }
-}
-
-@keyframes colorShift {
-    0% {
-        filter: hue-rotate(0deg);
-    }
-    100% {
-        filter: hue-rotate(360deg);
-    }
-}
 
 /* Theme Toggle Button - For Dark Mode */
 .theme-toggle {
