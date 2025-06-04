@@ -410,10 +410,6 @@ section:nth-child(odd)::before {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 100vh;
-    min-height: 140vh;
-    display: flex;
-    align-items: center;
     background-color: var(--light-color);
     overflow: hidden;
     background: linear-gradient(
@@ -426,7 +422,8 @@ section:nth-child(odd)::before {
     );
     background-size: 400% 400%;
     animation: darkGradientShift 15s ease infinite;
-    /* padding-top: 10vh; */
+    padding-top: 90px;
+    min-height: 100vh;
 }
 
 .hero::before {
