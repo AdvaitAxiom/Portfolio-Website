@@ -1795,4 +1795,5 @@ body::after {
     100% {
         transform: translate(10px, 10px) rotate(5deg);
     }
-} 
+}
+body
