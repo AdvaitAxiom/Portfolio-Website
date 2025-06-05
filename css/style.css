@@ -78,8 +78,8 @@ section:nth-child(even)::before {
     height: 100%;
     background-image: repeating-linear-gradient(
         -45deg,
-        rgba(67, 97, 238, 0.02) 0,
-        rgba(67, 97, 238, 0.02) 1px,
+        rgba(67, 97, 238, 0.03) 0,
+        rgba(67, 97, 238, 0.03) 1px,
         transparent 1px,
         transparent 16px
     );
@@ -112,11 +112,32 @@ section:nth-child(odd)::before {
 
 /* Hero section special background */
 .hero {
-    background-color: var(--light-color);
+    background: linear-gradient(
+        120deg,
+        rgba(71, 58, 211, 0.12) 0%,
+        rgba(76, 201, 240, 0.10) 25%,
+        rgba(249, 249, 252, 0.95) 50%,
+        rgba(255, 125, 59, 0.10) 75%,
+        rgba(78, 65, 217, 0.12) 100%
+    );
+    background-size: 300% 300%;
+    animation: lightGradientShift 12s ease-in-out infinite;
     position: relative;
     overflow: hidden;
     padding-top: 90px;
     min-height: 100vh;
+}
+
+@keyframes lightGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .hero::before {
@@ -1231,7 +1252,7 @@ body.dark-mode .filter-btn.active {
 .portfolio-info h3 {
     font-size: 1.4rem;
     font-weight: 600;
-    color: var(--dark-color);
+    color:white;
     margin-bottom: 10px;
     text-align: center;
     padding: 0 10px;
@@ -1239,7 +1260,7 @@ body.dark-mode .filter-btn.active {
 }
 
 .portfolio-info p {
-    color: var(--text-color);
+    color: white;
     font-size: 0.9rem;
     max-width: 90%;
     margin: 0 auto 15px;
@@ -1512,17 +1533,28 @@ body.dark-mode .menu-btn__burger::after {
 }
 
 body.dark-mode .hero {
-    background-color: var(--light-color);
     background: linear-gradient(
-        135deg,
-        rgba(26, 27, 35, 0.97) 0%,
-        rgba(22, 23, 29, 0.97) 25%,
-        rgba(24, 25, 33, 0.97) 50%,
-        rgba(22, 23, 29, 0.97) 75%,
-        rgba(26, 27, 35, 0.97) 100%
+        120deg,
+        rgba(145, 135, 255, 0.25) 0%,
+        rgba(176, 136, 249, 0.22) 25%,
+        rgba(26, 27, 35, 0.95) 50%,
+        rgba(255, 154, 118, 0.18) 75%,
+        rgba(145, 135, 255, 0.25) 100%
     );
-    background-size: 400% 400%;
-    animation: darkGradientShift 15s ease infinite;
+    background-size: 300% 300%;
+    animation: darkGradientShift 10s ease-in-out infinite;
+    /* Keep the rest of your styles */
+}
+@keyframes darkGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 body.dark-mode .hero-img-inner {
