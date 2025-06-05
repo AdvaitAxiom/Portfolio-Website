@@ -2089,6 +2089,99 @@ body::after {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     border: 1px solid rgba(78, 65, 217, 0.1);
+    position: relative;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(78, 65, 217, 0.1);
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glow effect for form inputs */
+.form-group::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.1),
+        rgba(255, 125, 59, 0.1),
+        rgba(78, 65, 217, 0.1)
+    );
+    border-radius: calc(var(--border-radius) + 2px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-group:hover::before,
+.form-group:focus-within::before {
+    opacity: 1;
+}
+
+.form-group::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.2),
+        rgba(255, 125, 59, 0.2),
+        rgba(78, 65, 217, 0.2)
+    );
+    border-radius: calc(var(--border-radius) + 1px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+}
+
+.form-group:hover::after,
+.form-group:focus-within::after {
+    opacity: 1;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 10px rgba(78, 65, 217, 0.1);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .form-group::before {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.1),
+        rgba(255, 154, 118, 0.1),
+        rgba(145, 135, 255, 0.1)
+    );
+}
+
+body.dark-mode .form-group::after {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.2),
+        rgba(255, 154, 118, 0.2),
+        rgba(145, 135, 255, 0.2)
+    );
 }
 
 .contact-form:hover {
@@ -2111,6 +2204,56 @@ body::after {
     font-size: 1rem;
     color: var(--text-color);
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glow effect for form inputs */
+.form-group::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.1),
+        rgba(255, 125, 59, 0.1),
+        rgba(78, 65, 217, 0.1)
+    );
+    border-radius: calc(var(--border-radius) + 2px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-group:hover::before,
+.form-group:focus-within::before {
+    opacity: 1;
+}
+
+.form-group::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.2),
+        rgba(255, 125, 59, 0.2),
+        rgba(78, 65, 217, 0.2)
+    );
+    border-radius: calc(var(--border-radius) + 1px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+}
+
+.form-group:hover::after,
+.form-group:focus-within::after {
+    opacity: 1;
 }
 
 .form-group input:focus,
@@ -2118,6 +2261,23 @@ body::after {
     border-color: var(--primary-color);
     outline: none;
     box-shadow: 0 0 10px rgba(78, 65, 217, 0.1);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .form-group::before {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.1),
+        rgba(255, 154, 118, 0.1),
+        rgba(145, 135, 255, 0.1)
+    );
+}
+
+body.dark-mode .form-group::after {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.2),
+        rgba(255, 154, 118, 0.2),
+        rgba(145, 135, 255, 0.2)
+    );
 }
 
 /* Add subtle pattern overlay */
@@ -2410,6 +2570,99 @@ body::after {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     border: 1px solid rgba(78, 65, 217, 0.1);
+    position: relative;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(78, 65, 217, 0.1);
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glow effect for form inputs */
+.form-group::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.1),
+        rgba(255, 125, 59, 0.1),
+        rgba(78, 65, 217, 0.1)
+    );
+    border-radius: calc(var(--border-radius) + 2px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-group:hover::before,
+.form-group:focus-within::before {
+    opacity: 1;
+}
+
+.form-group::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.2),
+        rgba(255, 125, 59, 0.2),
+        rgba(78, 65, 217, 0.2)
+    );
+    border-radius: calc(var(--border-radius) + 1px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+}
+
+.form-group:hover::after,
+.form-group:focus-within::after {
+    opacity: 1;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 10px rgba(78, 65, 217, 0.1);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .form-group::before {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.1),
+        rgba(255, 154, 118, 0.1),
+        rgba(145, 135, 255, 0.1)
+    );
+}
+
+body.dark-mode .form-group::after {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.2),
+        rgba(255, 154, 118, 0.2),
+        rgba(145, 135, 255, 0.2)
+    );
 }
 
 .contact-form:hover {
@@ -2432,6 +2685,56 @@ body::after {
     font-size: 1rem;
     color: var(--text-color);
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glow effect for form inputs */
+.form-group::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.1),
+        rgba(255, 125, 59, 0.1),
+        rgba(78, 65, 217, 0.1)
+    );
+    border-radius: calc(var(--border-radius) + 2px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-group:hover::before,
+.form-group:focus-within::before {
+    opacity: 1;
+}
+
+.form-group::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.2),
+        rgba(255, 125, 59, 0.2),
+        rgba(78, 65, 217, 0.2)
+    );
+    border-radius: calc(var(--border-radius) + 1px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+}
+
+.form-group:hover::after,
+.form-group:focus-within::after {
+    opacity: 1;
 }
 
 .form-group input:focus,
@@ -2439,6 +2742,23 @@ body::after {
     border-color: var(--primary-color);
     outline: none;
     box-shadow: 0 0 10px rgba(78, 65, 217, 0.1);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .form-group::before {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.1),
+        rgba(255, 154, 118, 0.1),
+        rgba(145, 135, 255, 0.1)
+    );
+}
+
+body.dark-mode .form-group::after {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.2),
+        rgba(255, 154, 118, 0.2),
+        rgba(145, 135, 255, 0.2)
+    );
 }
 
 /* Add subtle pattern overlay */
@@ -2504,6 +2824,1288 @@ body::after {
     100% {
         transform: translate(10px, 10px) rotate(5deg);
     }
+}
+
+/* Optional: Subtle animated gradient for hero section */
+@keyframes darkGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Optional: Subtle dot pattern */
+.portfolio, .contact {
+    position: relative;
+}
+
+.portfolio::before, .contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+        rgba(67, 97, 238, 0.03) 1px,
+        transparent 1px
+    );
+    background-size: 20px 20px, 30px 30px;
+    background-position: 0 0, 15px 15px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.portfolio .container, .contact .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced bottom footer */
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 30px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        -45deg,
+        rgba(67, 97, 238, 0.02) 0,
+        rgba(67, 97, 238, 0.02) 1px,
+        transparent 1px,
+        transparent 16px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Add subtle noise texture overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJTUUH4AcMDhsNvsiwFAAAAQVJREFUaN7t2MEJAkEQBdCXLTdYgAmIJ0EQwURMxExMxEg8CIKC4P+4h3F23Wa3ByGr1fP+VPU0M8DP7xWv+ESn3utGT4y3vRLfEXhGj1sMeEeHrY3oMIbbRoBHlHgzA9RoceUZGArU+Iog2lWL1QTQYYfbWREHfKDFITr8HJ3ND0PiU5HAWqzQYB81dmkV2U9YOo9YYpMWcJwxBaexQIPldMR4A+jvRJcphR9Zxf7A24xV6TDi9ivA0ZlQnlGcuQmVZ3YWdq0sRG9EdEQ0EVERkUVEFBFRRGQREUVEFBFZREQRERWRi9hFJBOKiCgisoj8p4hkEZFFRBYRUUREEZFFRBQRUURkETHUF68QmNBLDui+AAAAAElFTkSuQmCC');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* Subtle card hover enhancement */
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Button enhancements */
+.primary-btn, .view-more-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-btn::after, .view-more-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+    transition: transform 0.5s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.primary-btn:hover::after, .view-more-btn:hover::after {
+    transform: rotate(30deg) translate(10%, 10%);
+}
+
+.primary-btn span, .view-more-btn span {
+    position: relative;
+    z-index: 2;
+}
+
+/* Keep portfolio text visibility fixes while using original colors */
+.portfolio-info {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.7) 70%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+}
+
+.portfolio-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.6) 60%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    opacity: 0.6;
+}
+
+/* Enhanced Contact Section Background for Light Mode */
+.contact {
+    background-color: var(--light-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add decorative background elements similar to dark mode */
+.contact::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    background: rgba(78, 65, 217, 0.05);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.contact::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 125, 59, 0.05);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Ensure content is above background */
+.contact .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced styling for contact details */
+.contact-detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contact-detail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.contact-detail i {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(78, 65, 217, 0.1), rgba(78, 65, 217, 0.2));
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-right: 20px;
+    transition: all 0.3s ease;
+}
+
+.contact-detail:hover i {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* Enhanced styling for contact form */
+.contact-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(78, 65, 217, 0.1);
+    position: relative;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(78, 65, 217, 0.1);
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glow effect for form inputs */
+.form-group::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.1),
+        rgba(255, 125, 59, 0.1),
+        rgba(78, 65, 217, 0.1)
+    );
+    border-radius: calc(var(--border-radius) + 2px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-group:hover::before,
+.form-group:focus-within::before {
+    opacity: 1;
+}
+
+.form-group::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.2),
+        rgba(255, 125, 59, 0.2),
+        rgba(78, 65, 217, 0.2)
+    );
+    border-radius: calc(var(--border-radius) + 1px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+}
+
+.form-group:hover::after,
+.form-group:focus-within::after {
+    opacity: 1;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 10px rgba(78, 65, 217, 0.1);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .form-group::before {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.1),
+        rgba(255, 154, 118, 0.1),
+        rgba(145, 135, 255, 0.1)
+    );
+}
+
+body.dark-mode .form-group::after {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.2),
+        rgba(255, 154, 118, 0.2),
+        rgba(145, 135, 255, 0.2)
+    );
+}
+
+.contact-form:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(78, 65, 217, 0.1);
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glow effect for form inputs */
+.form-group::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.1),
+        rgba(255, 125, 59, 0.1),
+        rgba(78, 65, 217, 0.1)
+    );
+    border-radius: calc(var(--border-radius) + 2px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-group:hover::before,
+.form-group:focus-within::before {
+    opacity: 1;
+}
+
+.form-group::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.2),
+        rgba(255, 125, 59, 0.2),
+        rgba(78, 65, 217, 0.2)
+    );
+    border-radius: calc(var(--border-radius) + 1px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+}
+
+.form-group:hover::after,
+.form-group:focus-within::after {
+    opacity: 1;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 10px rgba(78, 65, 217, 0.1);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .form-group::before {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.1),
+        rgba(255, 154, 118, 0.1),
+        rgba(145, 135, 255, 0.1)
+    );
+}
+
+body.dark-mode .form-group::after {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.2),
+        rgba(255, 154, 118, 0.2),
+        rgba(145, 135, 255, 0.2)
+    );
+}
+
+/* Add subtle pattern overlay */
+.contact {
+    position: relative;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(rgba(78, 65, 217, 0.03) 1px, transparent 1px),
+        radial-gradient(rgba(255, 125, 59, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px, 30px 30px;
+    background-position: 0 0, 15px 15px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Add extra decorative elements for depth */
+.contact .container::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: -5%;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(
+        to bottom right,
+        rgba(78, 65, 217, 0.03),
+        rgba(255, 125, 59, 0.02)
+    );
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    z-index: -1;
+    animation: floatAnimation 8s ease-in-out infinite alternate;
+}
+
+.contact .container::after {
+    content: '';
+    position: absolute;
+    bottom: 5%;
+    left: -5%;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 125, 59, 0.02),
+        rgba(78, 65, 217, 0.03)
+    );
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    z-index: -1;
+    animation: floatAnimation 8s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate(10px, 10px) rotate(5deg);
+    }
+}
+
+/* Optional: Subtle animated gradient for hero section */
+@keyframes darkGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Optional: Subtle dot pattern */
+.portfolio, .contact {
+    position: relative;
+}
+
+.portfolio::before, .contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+        rgba(67, 97, 238, 0.03) 1px,
+        transparent 1px
+    );
+    background-size: 20px 20px, 30px 30px;
+    background-position: 0 0, 15px 15px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.portfolio .container, .contact .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced bottom footer */
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 30px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        -45deg,
+        rgba(67, 97, 238, 0.02) 0,
+        rgba(67, 97, 238, 0.02) 1px,
+        transparent 1px,
+        transparent 16px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Add subtle noise texture overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJTUUH4AcMDhsNvsiwFAAAAQVJREFUaN7t2MEJAkEQBdCXLTdYgAmIJ0EQwURMxExMxEg8CIKC4P+4h3F23Wa3ByGr1fP+VPU0M8DP7xWv+ESn3utGT4y3vRLfEXhGj1sMeEeHrY3oMIbbRoBHlHgzA9RoceUZGArU+Iog2lWL1QTQYYfbWREHfKDFITr8HJ3ND0PiU5HAWqzQYB81dmkV2U9YOo9YYpMWcJwxBaexQIPldMR4A+jvRJcphR9Zxf7A24xV6TDi9ivA0ZlQnlGcuQmVZ3YWdq0sRG9EdEQ0EVERkUVEFBFRRGQREUVEFBFZREQRERWRi9hFJBOKiCgisoj8p4hkEZFFRBYRUUREEZFFRBQRUURkETHUF68QmNBLDui+AAAAAElFTkSuQmCC');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* Subtle card hover enhancement */
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Button enhancements */
+.primary-btn, .view-more-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-btn::after, .view-more-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+    transition: transform 0.5s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.primary-btn:hover::after, .view-more-btn:hover::after {
+    transform: rotate(30deg) translate(10%, 10%);
+}
+
+.primary-btn span, .view-more-btn span {
+    position: relative;
+    z-index: 2;
+}
+
+/* Keep portfolio text visibility fixes while using original colors */
+.portfolio-info {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.7) 70%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+}
+
+.portfolio-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.6) 60%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    opacity: 0.6;
+}
+
+/* Enhanced Contact Section Background for Light Mode */
+.contact {
+    background-color: var(--light-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add decorative background elements similar to dark mode */
+.contact::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    background: rgba(78, 65, 217, 0.05);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.contact::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 125, 59, 0.05);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Ensure content is above background */
+.contact .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced styling for contact details */
+.contact-detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contact-detail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.contact-detail i {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(78, 65, 217, 0.1), rgba(78, 65, 217, 0.2));
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-right: 20px;
+    transition: all 0.3s ease;
+}
+
+.contact-detail:hover i {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* Enhanced styling for contact form */
+.contact-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(78, 65, 217, 0.1);
+    position: relative;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(78, 65, 217, 0.1);
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glow effect for form inputs */
+.form-group::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.1),
+        rgba(255, 125, 59, 0.1),
+        rgba(78, 65, 217, 0.1)
+    );
+    border-radius: calc(var(--border-radius) + 2px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-group:hover::before,
+.form-group:focus-within::before {
+    opacity: 1;
+}
+
+.form-group::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.2),
+        rgba(255, 125, 59, 0.2),
+        rgba(78, 65, 217, 0.2)
+    );
+    border-radius: calc(var(--border-radius) + 1px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+}
+
+.form-group:hover::after,
+.form-group:focus-within::after {
+    opacity: 1;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 10px rgba(78, 65, 217, 0.1);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .form-group::before {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.1),
+        rgba(255, 154, 118, 0.1),
+        rgba(145, 135, 255, 0.1)
+    );
+}
+
+body.dark-mode .form-group::after {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.2),
+        rgba(255, 154, 118, 0.2),
+        rgba(145, 135, 255, 0.2)
+    );
+}
+
+.contact-form:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(78, 65, 217, 0.1);
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glow effect for form inputs */
+.form-group::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.1),
+        rgba(255, 125, 59, 0.1),
+        rgba(78, 65, 217, 0.1)
+    );
+    border-radius: calc(var(--border-radius) + 2px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-group:hover::before,
+.form-group:focus-within::before {
+    opacity: 1;
+}
+
+.form-group::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.2),
+        rgba(255, 125, 59, 0.2),
+        rgba(78, 65, 217, 0.2)
+    );
+    border-radius: calc(var(--border-radius) + 1px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+}
+
+.form-group:hover::after,
+.form-group:focus-within::after {
+    opacity: 1;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 10px rgba(78, 65, 217, 0.1);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .form-group::before {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.1),
+        rgba(255, 154, 118, 0.1),
+        rgba(145, 135, 255, 0.1)
+    );
+}
+
+body.dark-mode .form-group::after {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.2),
+        rgba(255, 154, 118, 0.2),
+        rgba(145, 135, 255, 0.2)
+    );
+}
+
+/* Add subtle pattern overlay */
+.contact {
+    position: relative;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(rgba(78, 65, 217, 0.03) 1px, transparent 1px),
+        radial-gradient(rgba(255, 125, 59, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px, 30px 30px;
+    background-position: 0 0, 15px 15px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Add extra decorative elements for depth */
+.contact .container::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: -5%;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(
+        to bottom right,
+        rgba(78, 65, 217, 0.03),
+        rgba(255, 125, 59, 0.02)
+    );
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    z-index: -1;
+    animation: floatAnimation 8s ease-in-out infinite alternate;
+}
+
+.contact .container::after {
+    content: '';
+    position: absolute;
+    bottom: 5%;
+    left: -5%;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 125, 59, 0.02),
+        rgba(78, 65, 217, 0.03)
+    );
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    z-index: -1;
+    animation: floatAnimation 8s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate(10px, 10px) rotate(5deg);
+    }
+}
+
+/* Optional: Subtle animated gradient for hero section */
+@keyframes darkGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Optional: Subtle dot pattern */
+.portfolio, .contact {
+    position: relative;
+}
+
+.portfolio::before, .contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+        rgba(67, 97, 238, 0.03) 1px,
+        transparent 1px
+    );
+    background-size: 20px 20px, 30px 30px;
+    background-position: 0 0, 15px 15px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.portfolio .container, .contact .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced bottom footer */
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 30px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        -45deg,
+        rgba(67, 97, 238, 0.02) 0,
+        rgba(67, 97, 238, 0.02) 1px,
+        transparent 1px,
+        transparent 16px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Add subtle noise texture overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJTUUH4AcMDhsNvsiwFAAAAQVJREFUaN7t2MEJAkEQBdCXLTdYgAmIJ0EQwURMxExMxEg8CIKC4P+4h3F23Wa3ByGr1fP+VPU0M8DP7xWv+ESn3utGT4y3vRLfEXhGj1sMeEeHrY3oMIbbRoBHlHgzA9RoceUZGArU+Iog2lWL1QTQYYfbWREHfKDFITr8HJ3ND0PiU5HAWqzQYB81dmkV2U9YOo9YYpMWcJwxBaexQIPldMR4A+jvRJcphR9Zxf7A24xV6TDi9ivA0ZlQnlGcuQmVZ3YWdq0sRG9EdEQ0EVERkUVEFBFRRGQREUVEFBFZREQRERWRi9hFJBOKiCgisoj8p4hkEZFFRBYRUUREEZFFRBQRUURkETHUF68QmNBLDui+AAAAAElFTkSuQmCC');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* Subtle card hover enhancement */
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Button enhancements */
+.primary-btn, .view-more-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-btn::after, .view-more-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+    transition: transform 0.5s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.primary-btn:hover::after, .view-more-btn:hover::after {
+    transform: rotate(30deg) translate(10%, 10%);
+}
+
+.primary-btn span, .view-more-btn span {
+    position: relative;
+    z-index: 2;
+}
+
+/* Keep portfolio text visibility fixes while using original colors */
+.portfolio-info {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.7) 70%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+}
+
+.portfolio-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.6) 60%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    opacity: 0.6;
+}
+
+/* Enhanced Contact Section Background for Light Mode */
+.contact {
+    background-color: var(--light-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add decorative background elements similar to dark mode */
+.contact::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    background: rgba(78, 65, 217, 0.05);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.contact::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 125, 59, 0.05);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Ensure content is above background */
+.contact .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced styling for contact details */
+.contact-detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contact-detail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.contact-detail i {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(78, 65, 217, 0.1), rgba(78, 65, 217, 0.2));
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-right: 20px;
+    transition: all 0.3s ease;
+}
+
+.contact-detail:hover i {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* Enhanced styling for contact form */
+.contact-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(78, 65, 217, 0.1);
+    position: relative;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(78, 65, 217, 0.1);
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glow effect for form inputs */
+.form-group::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.1),
+        rgba(255, 125, 59, 0.1),
+        rgba(78, 65, 217, 0.1)
+    );
+    border-radius: calc(var(--border-radius) + 2px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-group:hover::before,
+.form-group:focus-within::before {
+    opacity: 1;
+}
+
+.form-group::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(90deg, 
+        rgba(78, 65, 217, 0.2),
+        rgba(255, 125, 59, 0.2),
+        rgba(78, 65, 217, 0.2)
+    );
+    border-radius: calc(var(--border-radius) + 1px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+}
+
+.form-group:hover::after,
+.form-group:focus-within::after {
+    opacity: 1;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 10px rgba(78, 65, 217, 0.1);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .form-group::before {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.1),
+        rgba(255, 154, 118, 0.1),
+        rgba(145, 135, 255, 0.1)
+    );
+}
+
+body.dark-mode .form-group::after {
+    background: linear-gradient(90deg, 
+        rgba(145, 135, 255, 0.2),
+        rgba(255, 154, 118, 0.2),
+        rgba(145, 135, 255, 0.2)
+    );
 }
 
 .portfolio-more {
