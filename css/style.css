@@ -1323,6 +1323,10 @@ body.dark-mode .filter-btn.active {
     margin-left: 20px;
     position: relative;
     z-index: 1000;
+    font-size: 17px;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
 }
 
 .theme-toggle input {
@@ -1333,51 +1337,50 @@ body.dark-mode .filter-btn.active {
 }
 
 .theme-toggle label {
-    width: 60px;
-    height: 30px;
-    background: linear-gradient(40deg, #FFD86F, #FC6262);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5px;
-    position: relative;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.theme-toggle .fa-sun {
-    color: #FFD86F;
-    font-size: 16px;
-}
-
-.theme-toggle .fa-moon {
-    color: #c4c9d1;
-    font-size: 16px;
-}
-
-.toggle-ball {
+    --background: #28096b;
     position: absolute;
-    top: 2.5px;
-    left: 3px;
-    width: 25px;
-    height: 25px;
-    background-color: white;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    transition: .5s;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.theme-toggle label:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
     border-radius: 50%;
-    transition: transform 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    left: 0.3em;
+    bottom: 0.3em;
+    box-shadow: inset 8px -4px 0px 0px #fff000;
+    background: var(--background);
+    transition: .5s;
 }
 
 .theme-toggle input:checked + label {
-    background: linear-gradient(40deg, #8983F7, #A3DAFB);
+    background-color: #522ba7;
 }
 
-.theme-toggle input:checked + label .toggle-ball {
-    transform: translateX(30px);
+.theme-toggle input:checked + label:before {
+    transform: translateX(1.5em);
+    box-shadow: inset 15px -4px 0px 15px #fff000;
 }
 
-/* Dark Theme - Apply to body when dark-mode class is present */
+/* Dark mode styles for toggle */
+body.dark-mode .theme-toggle label {
+    --background: #522ba7;
+}
+
+body.dark-mode .theme-toggle input:checked + label {
+    background-color: #28096b;
+}
+
 body.dark-mode {
     --primary-color: #9187FF;
     --secondary-color: #FF9A76;
