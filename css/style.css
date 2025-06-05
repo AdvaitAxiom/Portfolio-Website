@@ -114,11 +114,11 @@ section:nth-child(odd)::before {
 .hero {
     background: linear-gradient(
         120deg,
-        rgba(71, 58, 211, 0.12) 0%,
-        rgba(76, 201, 240, 0.10) 25%,
+        rgba(71, 58, 211, 0.5) 0%,
+        rgba(76, 201, 240, 0.3) 25%,
         rgba(249, 249, 252, 0.95) 50%,
-        rgba(255, 125, 59, 0.10) 75%,
-        rgba(78, 65, 217, 0.12) 100%
+        rgba(255, 125, 59, 0.3) 75%,
+        rgba(78, 65, 217, 0.3) 100%
     );
     background-size: 300% 300%;
     animation: lightGradientShift 12s ease-in-out infinite;
