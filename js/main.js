@@ -6,16 +6,22 @@ AOS.init({
 });
 
 // Preloader
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
     const preloader = document.querySelector('.preloader');
+    // Prevent scrolling while preloader is visible
+    document.body.style.overflow = 'hidden';
+
     setTimeout(() => {
         preloader.classList.add('hidden');
-        // Remove from DOM after transition
+        // Allow scrolling again
+        document.body.style.overflow = '';
+        // Remove from DOM after fade out
         setTimeout(() => {
-            preloader.parentNode.removeChild(preloader);
-        }, 500); // match your CSS transition duration
-    }, 500);
-    preloader.style.display = 'none';
+            if (preloader && preloader.parentNode) {
+                preloader.parentNode.removeChild(preloader);
+            }
+        }, 600); // match your CSS transition duration
+    }, 2000); // 2000ms = 2 seconds, change as needed
 });
 
 // Sticky Navbar
