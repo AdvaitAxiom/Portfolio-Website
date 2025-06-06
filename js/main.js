@@ -292,8 +292,8 @@ if (contactForm) {
         
         // If validation passes, you would normally send the form data to a server
         // For demo purposes, just show a success message
-        alert('Your message has been sent successfully!');
-        contactForm.reset();
+        // alert('Your message has been sent successfully!');
+        // contactForm.reset();
     });
 }
 
