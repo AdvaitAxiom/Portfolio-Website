@@ -304,6 +304,12 @@ section:nth-child(odd)::before {
     color: var(--primary-color);
 }
 
+@media (max-width: 768px){
+    .hero{
+        padding-top: 90px;
+    }
+}
+
 /* Ensure even heights for service cards */
 @media (min-width: 768px) {
     .services-grid {
