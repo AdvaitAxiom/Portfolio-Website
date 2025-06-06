@@ -124,7 +124,7 @@ section:nth-child(odd)::before {
     animation: lightGradientShift 12s ease-in-out infinite;
     position: relative;
     overflow: hidden;
-    padding-top: 90px;
+    padding-top:23.5vh;
     min-height: 100vh;
 }
 
