@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 preloader.parentNode.removeChild(preloader);
             }
         }, 600); // match your CSS transition duration
-    }, 4000); // 2000ms = 2 seconds, change as needed
+    }, 2000); // 2000ms = 2 seconds, change as needed
 });
 
 // Sticky Navbar
