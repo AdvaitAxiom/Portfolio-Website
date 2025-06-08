@@ -369,6 +369,7 @@ section:nth-child(odd)::before {
     left: 0;
     width: 100%;
     height: 100%;
+    /* overflow: hidden; */
     background: linear-gradient(
         135deg,
         rgba(67, 97, 238, 0.02) 0%,
@@ -1359,7 +1360,7 @@ body.dark-mode .filter-btn.active {
 }
 
 /* Portfolio tags */
-.portfolio-tags {
+/* .portfolio-tags {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -1374,7 +1375,7 @@ body.dark-mode .filter-btn.active {
     border-radius: 4px;
     font-size: 0.75rem;
     font-weight: 500;
-}
+} */
 
 /* Portfolio links */
 .portfolio-links {
