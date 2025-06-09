@@ -80,7 +80,7 @@ const typed = document.querySelector('.typed-text');
 const cursor = document.querySelector('.cursor');
 
 if (typed && cursor) {
-    const words = ['Web Developer','Frontend Developer','Full-Stack Developer','AI Enthusiast','Software Engineer'];
+    const words = ['Web Developer','Full Stack Developer','AI Enthusiast','Software Engineer','Mobile Photographer'];
     const typingDelay = 100;
     const erasingDelay = 70;
     const newWordDelay = 2000;
